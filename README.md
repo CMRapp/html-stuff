@@ -6,3 +6,8 @@ It has been 13 years since I've received my AS Degrees in Computer Programming &
 The projects in this repository are things that I have created as I refresh and re-develop my skills. They might not be perfect, but it's a good starting point!
 
 ***Note: I am currently enrolled in the Front End Software Developer Boot Camp offered by Promineo Tech. A seperate repository will be created for that work.***
+
+***
+### Project Directory
+:smile: Smiley.html : Created an animated smiley face and background using nothing but HTML5 & CSS
+
