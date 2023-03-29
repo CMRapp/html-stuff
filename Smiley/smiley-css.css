@@ -1,0 +1,464 @@
+:root {
+    --smiley-face: #f7db16;
+    --smiley-eyes: #000000;
+      }
+/* Base reset */
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* box-sizing and font sizing */
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  html {
+    box-sizing: border-box;
+  
+    /* Set font size for easy rem calculations
+     * default document font size = 16px, 1rem = 16px, 100% = 16px
+     * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+    */
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+  }
+  h1{font-size: 30px; font-family: 'Luckiest Guy', cursive;}
+  
+  body {
+    background: linear-gradient(45deg, rgb(118, 201, 255), rgb(247, 255, 222));
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family: "Luckiest Guy", cursive;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 2em;
+    padding: 0;
+    color: white;
+    text-shadow: 0 0.1em 20px rgba(0, 0, 0, 1), 0.05em -0.03em 0 rgba(0, 0, 0, 1),
+      0.05em 0.005em 0 rgba(0, 0, 0, 1), 0em 0.08em 0 rgba(0, 0, 0, 1),
+      0.05em 0.08em 0 rgba(0, 0, 0, 1), 0px -0.03em 0 rgba(0, 0, 0, 1),
+      -0.03em -0.03em 0 rgba(0, 0, 0, 1), -0.03em 0.08em 0 rgba(0, 0, 0, 1), -0.03em 0 0 rgba(0, 0, 0, 1);
+  }
+     
+
+
+  /* CLOUDS */
+  #clouds{
+    padding: 100px 0;
+	background: #c9dbe9;
+	background: -webkit-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+	background: -linear-gradient(top, #c9dbe9 0%, #fff 100%);
+	background: -moz-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+    z-index:-1;
+}
+.cloud {
+	width: 200px; height: 60px;
+	background: #fff;	
+	border-radius: 200px;
+	-moz-border-radius: 200px;
+	-webkit-border-radius: 200px;	
+	position: relative; 
+}
+.cloud:before, .cloud:after {
+	content: '';
+	position: absolute; 
+	background: #fff;
+	width: 100px; height: 80px;
+	position: absolute; top: -15px; left: 10px;
+	
+	border-radius: 100px;
+	-moz-border-radius: 100px;
+	-webkit-border-radius: 100px;
+	
+	-webkit-transform: rotate(30deg);
+	transform: rotate(30deg);
+	-moz-transform: rotate(30deg);
+}
+
+.cloud:after {
+	width: 120px; height: 120px;
+	top: -55px; left: auto; right: 15px;
+}
+
+/* NOTE: opacity proportional to the size of cloud */
+.one {
+    animation: cloudmove 15s linear infinite;
+}
+
+.two {
+    left:200px;
+    transform: scale(0.6);
+	opacity: 0.6;          
+    animation: cloudmove 25s linear infinite;
+}
+
+.three{
+    left: -250px; 
+    top: 300px;
+    transform: scale(0.8);
+	opacity: 0.8; 
+    animation: cloudmove 20s linear infinite;
+}
+
+.four{
+    left: 470px;
+    top: 250px;
+    transform: scale(0.75);
+	opacity: 0.75; 
+    animation: cloudmove 11s linear infinite;
+}
+
+.five{
+    left:-150px;
+    top: 50px;
+    transform: scale(0.8);
+	opacity: 0.8; 
+    animation: cloudmove 18s linear infinite;
+}
+.six{
+    top: 450px;
+    transform: scale(0.9);
+	opacity: 0.9; 
+    animation: cloudmove 15s linear infinite;
+}
+.seven{
+    left:150px;
+    top: 600px;
+    transform: scale(0.3);
+	opacity: 0.3; 
+    animation: cloudmove 28s linear infinite;
+}
+
+  /* SMILEY CONTAINER */
+  .smiley {
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    top:50px;
+    position: absolute;    
+  }
+  
+  .smiley * {
+    position:absolute;
+  }
+
+  .face {
+    width:100%;
+    height: 100%;
+    background-color: var(--smiley-face);
+    border: 5px solid var(--smiley-eyes);
+    border-radius:50%;
+    animation: 2s linear roll;
+    display:flex;
+  }
+
+ .eyes {
+    width: 10%;
+    height: 45%;
+    background-color: var(--smiley-eyes);
+    top: 10%;
+    border-radius: 50%;
+    animation: 3s infinite blink;
+  }
+
+  .eyes.left {
+    left: 30%;
+  }
+  
+  .eyes.right {
+    right: 30%;
+  }
+
+  .smile{
+    position: absolute;
+    z-index: 1;
+    top: 40%;
+    left: 0;
+    right: 0;
+    height: 200px;
+    width: 325px;
+    margin: 0 auto;
+    border-bottom: 11px solid var(--smiley-eyes);
+    border-radius: 50%;
+  }
+
+  /* HAVE A NICE DAY TEXT (hand) */
+  .hand{
+    position:relative;    
+    font-size:28px;
+    top:545px;
+    display:flex;
+    flex-flow:column wrap;
+    justify-content: center; 
+    align-items:center;
+  }
+
+  .hand span {
+    transform: scale(0.9);
+    display: inline-block;
+  }
+  
+  .hand span:first-child {
+    animation: bop 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards infinite
+      alternate;
+  }
+  .hand span:last-child {
+    margin-left:12px;
+    animation: bopB 1s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards
+      infinite alternate;
+  }
+
+  .hand span{
+    position: relative;
+    font-family: 'Luckiest Guy', cursive;
+  }
+
+  /* Footer */
+  footer {
+    position:relative;
+    font-weight: 300;
+    top:240px;
+    display: flex;
+    flex-flow:column wrap;
+    justify-content: center; 
+    align-items:center;
+    font-family: Raleway, sans-serif;      
+    width:50%;
+    text-align:center;
+  }
+  
+  footer > p {
+    margin-top: 55px;
+    font-size:14px;
+  }
+ p.credits{
+    margin-top:10px;
+    font-size:12px;
+    clear: left;
+  }
+  p.notes{
+    margin-top:15px;
+    font-size:12px;
+    font-style:italic;
+    font-weight:500;
+  }
+  
+  .footer-logo {
+    vertical-align: middle;
+    display:inline;
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 800px) { /*Hide Footer Logo when screen is less than 800px */
+    .footer-logo {
+      display:none;
+    }
+  }
+  /*************************  GRAPHICAL ELEMENTS *************************************/
+  /* SPRITE BIRDS Source: https://blog.devgenius.io/how-to-create-animated-birds-on-a-web-app-with-css-2415627acfa9 */
+
+  .bird{
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg);
+    background-size: auto 100%;
+    width:88px;
+    height: 125px;
+    will-change:background-position;
+
+    animation-name: fly-cycle;
+    animation-timing-function: steps(10);
+    animation-iteration-count: infinite;
+  }
+  .bird-one{
+    animation-duration:1s;
+    animation-delay: 0.5s;
+  }
+
+  .bird-two{
+    animation-duration:0.9s;
+    animation-delay: -0.75s;
+  }
+
+  .bird-three{
+    animation-duration:1.25s;
+    animation-delay: -0.25s;
+  }
+
+  .bird-four{
+    animation-duration:1.1s;
+    animation-delay: -0.5s;
+  }
+
+  /* BIRD CONTAINERS */
+  .bird-container {
+    position: absolute;
+    top:10%;
+    left: -10%;
+    transform: scale(0) translateX(-20vw);
+    will-change: transform;
+
+    animation-name:fly-right-one;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  .bird-container-one{
+    animation-duration: 15s;
+    animation-delay: 0;
+  }
+
+  .bird-container-two{
+    animation-duration: 16s;
+    animation-delay: 1s;
+  }
+
+  .bird-container-three{
+    animation-duration: 14.6s;
+    animation-delay: 9.5s;
+  }
+
+  .bird-container-one{
+    animation-duration: 16s;
+    animation-delay: 10.25s;
+  }
+
+  
+
+  /* CREATE ROLLIN ANIMATION FOR THE SMILEY FACE */
+  @keyframes roll {
+    0% {
+        left:-50%;              /* start at far left of viewport*/
+        transform: translateX(-100%) rotate(-120deg); 
+    } 
+    50%{
+        left:0;    /* end at center of viewport */
+        transform: translateX(0px) rotate(0deg); 
+    }
+  }
+ /* Create Blink Animation */
+  @keyframes blink {
+    90% {
+        transform: none;
+        animation-timing-function: ease-in;
+      }
+      93% {
+        transform: translateY(15px) scaleY(0)
+      }
+      100% {
+        animation-timing-function: ease-out;
+      }
+  }
+
+  /* MOVE CLOUDS ANIMATION */
+  @keyframes cloudmove{
+    0% {margin-left: 1000px;}
+	100% {margin-left: -1000px;}
+  }
+
+  /* TEXT ANIMATION */
+  @keyframes bop {
+    0% {
+      transform: scale(0.9);
+    }
+    50%,
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes bopB {
+    0% {
+      transform: scale(0.9);
+    }
+    80%,
+    100% {
+      transform: scale(1) rotateZ(-3deg);
+    }
+  }
+
+  /* FLYING BIRDS */
+  @keyframes fly-cycle {
+    100% {
+      background-position: -900px 0;
+    }
+  }
+
+  @keyframes fly-right-one{
+    0% {
+      transform: scale(0.3) translateX(-10vw);
+    }
+
+    10% {
+      transform: thanslateY(2vh) translateX(10vw) scale(0.4);
+    }
+
+    20% {
+      transform: thanslateY(0vh) translateX(30vw) scale(0.5);
+    }
+
+    30% {
+      transform: thanslateY(4vh) translateX(50vw) scale(0.6);
+    }
+
+    40% {
+      transform: thanslateY(2vh) translateX(70vw) scale(0.6);
+    }
+
+    50% {
+      transform: thanslateY(0vh) translateX(90vw) scale(0.6);
+    }
+
+    60% {
+      transform: thanslateY(0vh) translateX(110vw) scale(0.6);
+    }
+
+    100% {
+      transform: thanslateY(0vh) translateX(110vw) scale(0.6);
+    }
+  }
+
+  @keyframes fly-right-two{
+    0% {
+      transform: scale(-2vh) translateX(-10vw) scale(0.6);
+    }
+
+    10% {
+      transform: thanslateY(0vh) translateX(10vw) scale(0.4);
+    }
+
+    20% {
+      transform: thanslateY(-4vh) translateX(30vw) scale(0.6);
+    }
+
+    30% {
+      transform: thanslateY(1vh) translateX(50vw) scale(0.45);
+    }
+
+    40% {
+      transform: thanslateY(-2.5vh) translateX(70vw) scale(0.5);
+    }
+
+    50% {
+      transform: thanslateY(0vh) translateX(90vw) scale(0.45);
+    }
+
+    51% {
+      transform: thanslateY(0vh) translateX(110vw) scale(0.45);
+    }
+
+    100% {
+      transform: thanslateY(0vh) translateX(110vw) scale(0.45);
+    }
+  }
+
+  
